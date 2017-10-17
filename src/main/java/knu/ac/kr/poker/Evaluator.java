@@ -59,7 +59,7 @@ public class Evaluator {
         int r = ranks.poll();
         if(r == 1) {
             r = ranks.poll();
-            if(r != 10)
+            if(r != 10 && r != 2)
                 isStraight = false;
         }
         while(isStraight && !ranks.isEmpty()){

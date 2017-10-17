@@ -52,6 +52,36 @@ public class EvaluatorTest {
     }
 
     @Test
+    public void 스트레이트_A10QJK상황_검증_성공(){
+        Hand hand = new Hand();
+        hand.addCard(new Card(10, Suit.HEART));
+        hand.addCard(new Card(11, Suit.SPADE));
+        hand.addCard(new Card(12, Suit.CLUB));
+        hand.addCard(new Card(13, Suit.HEART));
+        hand.addCard(new Card(1, Suit.SPADE));
+
+        Evaluator evaluator = new Evaluator();
+        String result = evaluator.evaluate(hand);
+
+        assertTrue(result.equals("STRAIGHT"));
+    }
+
+    @Test
+    public void 스트레이트_A2345상황_검증_성공(){
+        Hand hand = new Hand();
+        hand.addCard(new Card(5, Suit.HEART));
+        hand.addCard(new Card(4, Suit.SPADE));
+        hand.addCard(new Card(2, Suit.CLUB));
+        hand.addCard(new Card(3, Suit.HEART));
+        hand.addCard(new Card(1, Suit.SPADE));
+
+        Evaluator evaluator = new Evaluator();
+        String result = evaluator.evaluate(hand);
+
+        assertTrue(result.equals("STRAIGHT"));
+    }
+
+    @Test
     public void 포카드_검증_성공(){
         Hand hand = new Hand();
         hand.addCard(new Card(7, Suit.HEART));
