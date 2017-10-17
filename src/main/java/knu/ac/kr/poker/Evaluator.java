@@ -57,7 +57,12 @@ public class Evaluator {
             ranks.add(card.getRank());
 
         int r = ranks.poll();
-        while(!ranks.isEmpty()){
+        if(r == 1) {
+            r = ranks.poll();
+            if(r != 10)
+                isStraight = false;
+        }
+        while(isStraight && !ranks.isEmpty()){
             int temp = ranks.poll();
             if(temp - r != 1){
                 isStraight = false;
